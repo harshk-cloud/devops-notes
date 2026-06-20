@@ -2,7 +2,7 @@
 
 ## pwd 
 
-Meaning: print Working Directory 
+Meaning: Print Working Directory 
 
 Purpose: Displays the current directory (location) where I am working
 
@@ -10,7 +10,11 @@ Example:
 pwd
 
 Output:
-/home/harshkumar 
+/home/harshkumar
+
+My Notes:
+I used this command to check my current location in the Linux filesystem.
+ 
 
 ## ls 
 
@@ -21,7 +25,9 @@ Purpose: Displays the files and directories in the current location.
 Example:
 ls
 
----
+My Notes:
+I used this command to view files and directories in the current folder.
+
 
 ## cd 
 
@@ -36,7 +42,24 @@ cd linux
 cd ..
 cd ~
 
----
+My Notes:
+I used this command to move between directories, such as entering the linux folder and returning to the home directory.
+
+
+
+## cd ..
+
+Meaning: Move to the parent directory.
+
+Prupose: Used to go one level up in the directory structure.
+
+
+Example:
+cd .. 
+
+My notes
+I used this command to move from the linux folder back to the devops-notes folder.
+
 
 ## mkdir
 
@@ -45,9 +68,11 @@ Meaning: Make directory
 Purpose: Creates a new directory (folder).
 
 Example:
-mkdir Linux
+mkdir linux
 
-___
+My Notes:
+I used this command to create the linux directory inside my devops-notes repository.
+
 
 ## touch 
 
@@ -56,7 +81,9 @@ Purpose: Creates a new empty file.
 Example:
 touch day1.md
 
----
+My notes:
+I used this command to create the day1.md file for storing my Linux notes.
+
 
 # What I Practiced Today
 
