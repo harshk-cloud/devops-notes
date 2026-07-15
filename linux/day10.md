@@ -1,4 +1,4 @@
-# Day 10 - Linux File & Directory Management (Part 1)
+# Day 10 - Linux File & Directory Management
 
 ## touch (Create a Single File)
 
