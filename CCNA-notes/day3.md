@@ -60,6 +60,57 @@ IBM ───── IBM ✅
 IBM ───── Apple ❌
 ```
 
+## Packet Switching
+
+Meaning: A method of sending data by breaking it into small packets instead of sending it as one large block.
+
+Purpose: To make communication faster, more efficient, and more reliable.
+
+Example:
+When you send a photo on WhatsApp, it is divided into multiple small packets. These packets travel through the network and are reassembled at the destination.
+
+My Notes:
+- Packet Switching was introduced with ARPANET.
+- Data is divided into small packets before transmission.
+- Each packet can take a different path to reach the destination.
+- The destination device reassembles all packets into the original data.
+- Packet Switching is the foundation of modern computer networks and the Internet.
+
+Diagram:
+
+```
+Original Data
+
+[Large File]
+
+        │
+        ▼
+
++------+------+------+------+
+|Pkt 1 |Pkt 2 |Pkt 3 |Pkt 4 |
++------+------+------+------+
+
+        │
+        ▼
+
+Packets travel through the network
+
+        │
+        ▼
+
+Destination
+
++------+------+------+------+
+|Pkt 1 |Pkt 2 |Pkt 3 |Pkt 4 |
++------+------+------+------+
+
+        │
+        ▼
+
+Original File Reassembled
+```
+
+
 ## Networking Standards
 
 Meaning: A common set of networking rules followed by all companies.
@@ -200,7 +251,7 @@ My Notes:
 - Does not understand the actual data.
 
 
-## OSI Model
+## OSI Model ( Open Systems Interconnection )
 
 Meaning: A reference model used for learning and troubleshooting.
 
@@ -210,6 +261,12 @@ My Notes:
 - The OSI Model contains 7 layers.
 - Real-world networking uses TCP/IP.
 - OSI is mainly used for learning and troubleshooting.
+- OSI stands for Open Systems Interconnection.
+- It is a reference model, not the networking model used on today's Internet.
+- It divides networking into seven layers.
+- It makes networking concepts easier to learn.
+- Network engineers commonly use OSI layer numbers (Layer 1, Layer 2, Layer 3, etc.) while troubleshooting.
+- The TCP/IP model is used in real-world networking, but OSI terminology is still widely used.
 
 Diagram:
 
