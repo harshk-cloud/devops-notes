@@ -116,12 +116,14 @@ Meaning: Redundancy means providing backup components or alternate paths so the 
 Purpose: It improves network availability and reduces the impact of failures.
 
 Example:
-
+```
               Switch A
              /        \
 Device -----            ----- Network
              \        /
               Switch B
+
+```
 
 If Switch A fails, an alternate path through Switch B can be available.
 
