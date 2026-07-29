@@ -129,16 +129,55 @@ Meaning: Spine-Leaf is a two-tier data center network architecture consisting ma
 Purpose: It provides predictable paths, high bandwidth, redundancy, and efficient East-West communication.
 
 Example:
+```
+                 SPINE LAYER
+
+        [Spine1]   [Spine2]   [Spine3]
+            |          |          |
+            |          |          |
+            v          v          v
+        +--------------------------------+
+        |     EVERY SPINE CONNECTS       |
+        |       TO EVERY LEAF            |
+        +--------------------------------+
+            |          |          |
+            v          v          v
+         [Leaf1]    [Leaf2]    [Leaf3]
+            |          |          |
+         Servers    Servers    Servers
+```
+
+
+SPINE-LEAF ARCHITECTURE  ( In Simple )
 
 ```
-Spine1      Spine2      Spine3
-  |\         /|\         /|
-  | \       / | \       / |
-  |  \     /  |  \     /  |
-Leaf1      Leaf2       Leaf3
-  |          |           |
-Servers    Servers     Servers
+                    [ Spine1 ]
+                   /    |    \
+                  /     |     \
+                 v      v      v
+              Leaf1   Leaf2   Leaf3
+
+
+                    [ Spine2 ]
+                   /    |    \
+                  /     |     \
+                 v      v      v
+              Leaf1   Leaf2   Leaf3
+
+
+                    [ Spine3 ]
+                   /    |    \
+                  /     |     \
+                 v      v      v
+              Leaf1   Leaf2   Leaf3
 ```
+
+Rule:
+Every Spine -> Every Leaf
+Every Leaf -> Every Spine
+
+No Leaf -> Leaf connection
+No Spine -> Spine connection
 
 My Notes:
 - Spine-Leaf is also associated with Clos-based network designs.
