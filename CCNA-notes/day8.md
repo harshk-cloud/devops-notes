@@ -1,4 +1,4 @@
-# Day 8 - WAN Technologies (Part 1)
+# Day 8 - WAN Technologies
 
 
 ## What is WAN?
@@ -9,6 +9,7 @@ Purpose: To allow different company locations to communicate with each other.
 
 Example:
 
+```
 Corporate Office (Dallas)
         |
         |
@@ -16,6 +17,7 @@ Corporate Office (Dallas)
         |
         |
 Branch Office (Phoenix)
+```
 
 My Notes:
 - WAN connects different LANs.
@@ -33,6 +35,7 @@ Purpose: To give every branch access to centralized company services.
 
 Example:
 
+```
 Coffee Shop
       |
       |
@@ -44,6 +47,7 @@ Data Center
 Phone Server
 Email Server
 Database Server
+```
 
 My Notes:
 - Branch offices communicate with the Corporate Office.
@@ -68,11 +72,13 @@ Purpose: To understand the difference between local and geographically separated
 
 Example:
 
+```
 Corporate Office LAN
         |
        WAN
         |
 Data Center LAN
+```
 
 My Notes:
 - Every office has its own LAN.
@@ -87,11 +93,13 @@ Purpose: To connect company sites without the company installing cables itself.
 
 Example:
 
+```
 Corporate Office
         |
 Service Provider Network
         |
 Branch Office
+```
 
 My Notes:
 - Also called a Carrier.
@@ -161,11 +169,12 @@ Purpose: To understand why newer WAN technologies were introduced.
 
 Example:
 
-          Branch A
+```          Branch A
               |
 HQ ============
               |
           Branch B
+```
 
 More Branches = More Leased Circuits = More Cost
 
@@ -195,9 +204,10 @@ Purpose: To reduce the cost of connecting multiple sites.
 
 Example:
 
-           Provider Cloud
+```           Provider Cloud
           /      |      \
         HQ    Branch1  Branch2
+```
 
 My Notes:
 - Legacy WAN technology.
@@ -226,10 +236,11 @@ Purpose: To provide private, scalable, and reliable WAN connectivity.
 
 Example:
 
-          MPLS Provider Cloud
+```          MPLS Provider Cloud
          /        |        \
 Corporate      Branch     Data Center
  Office
+```
 
 My Notes:
 - Enterprise WAN technology.
@@ -262,6 +273,7 @@ Purpose: To improve packet forwarding inside the provider network.
 
 Example:
 
+```
 Layer 7 - Application
 Layer 6 - Presentation
 Layer 5 - Session
@@ -272,6 +284,7 @@ MPLS (Layer 2.5)
 Layer 3 - Network
 Layer 2 - Data Link
 Layer 1 - Physical
+```
 
 My Notes:
 - Often called Layer 2.5 technology.
@@ -285,11 +298,13 @@ Purpose: To connect the customer LAN to the MPLS network.
 
 Example:
 
+```
 Customer LAN
       |
    CE Router
       |
 Provider Network
+```
 
 My Notes:
 - CE = Customer Edge Router.
@@ -304,13 +319,14 @@ Purpose: To receive customer traffic into the provider's MPLS network.
 
 Example:
 
-Customer LAN
+```Customer LAN
      |
  CE Router
      |
  PE Router
      |
 Provider MPLS Network
+```
 
 My Notes:
 - PE = Provider Edge Router.
@@ -346,11 +362,13 @@ Purpose: To provide high-speed Ethernet connectivity between company locations.
 
 Example:
 
+```
 Corporate Office
        ||
  Metro Ethernet
        ||
 Data Center
+```
 
 My Notes:
 - Similar to a Point-to-Point connection.
@@ -389,11 +407,13 @@ Purpose: To extend Ethernet connectivity between different locations.
 
 Example:
 
+```
 Switch
    |
 Metro Ethernet
    |
 Switch
+```
 
 My Notes:
 - Transfers Ethernet Frames.
@@ -427,9 +447,10 @@ Purpose: To allow multiple locations to communicate directly.
 
 Example:
 
-        Provider Ethernet Cloud
+```        Provider Ethernet Cloud
         /    |     |      \
       HQ   DC   Branch1  Branch2
+```
 
 My Notes:
 - Behaves like one large Layer 2 switch.
@@ -444,11 +465,12 @@ Purpose: To connect branch offices to one central location.
 
 Example:
 
-          Branch A
+```          Branch A
              |
 Branch B ---- HQ ---- Branch C
              |
         Branch D
+```
 
 My Notes:
 - Central location is called the Root.
@@ -478,11 +500,12 @@ Purpose: To reduce WAN costs.
 
 Example:
 
-Seattle Office
+```Seattle Office
       |
  Public Internet
       |
 Data Center
+```
 
 My Notes:
 - Much cheaper than MPLS.
@@ -498,13 +521,14 @@ Purpose: To securely connect remote company locations.
 
 Example:
 
-Branch Office
+```Branch Office
       |
  Internet
       |
  VPN Tunnel
       |
 Data Center
+```
 
 My Notes:
 - Encrypts traffic over the Internet.
@@ -520,11 +544,12 @@ Purpose: To securely connect company locations over the Internet.
 
 Example:
 
-Office LAN
+```Office LAN
     |
  Router ===== VPN Tunnel ===== Router
                                  |
                              Remote LAN
+```
 
 My Notes:
 - Connects entire office networks.
@@ -553,11 +578,12 @@ Purpose: To provide a modern and intelligent WAN solution.
 
 Example:
 
-          Internet
+```          Internet
              |
 Branch ---- SD-WAN ---- Data Center
              |
             Cloud
+```
 
 My Notes:
 - Modern replacement for MPLS.
@@ -575,11 +601,12 @@ Purpose: To provide applications closer to users.
 
 Example:
 
-Branch Office
+```Branch Office
       |
  Internet
       |
 AWS / Azure
+```
 
 My Notes:
 - Traffic is no longer limited to the Data Center.
