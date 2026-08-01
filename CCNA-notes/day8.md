@@ -169,7 +169,8 @@ Purpose: To understand why newer WAN technologies were introduced.
 
 Example:
 
-```          Branch A
+```
+          Branch A
               |
 HQ ============
               |
@@ -204,7 +205,8 @@ Purpose: To reduce the cost of connecting multiple sites.
 
 Example:
 
-```           Provider Cloud
+```
+           Provider Cloud
           /      |      \
         HQ    Branch1  Branch2
 ```
@@ -236,7 +238,8 @@ Purpose: To provide private, scalable, and reliable WAN connectivity.
 
 Example:
 
-```          MPLS Provider Cloud
+```
+          MPLS Provider Cloud
          /        |        \
 Corporate      Branch     Data Center
  Office
@@ -319,7 +322,8 @@ Purpose: To receive customer traffic into the provider's MPLS network.
 
 Example:
 
-```Customer LAN
+```
+Customer LAN
      |
  CE Router
      |
@@ -447,7 +451,8 @@ Purpose: To allow multiple locations to communicate directly.
 
 Example:
 
-```        Provider Ethernet Cloud
+```
+        Provider Ethernet Cloud
         /    |     |      \
       HQ   DC   Branch1  Branch2
 ```
@@ -465,7 +470,8 @@ Purpose: To connect branch offices to one central location.
 
 Example:
 
-```          Branch A
+```
+          Branch A
              |
 Branch B ---- HQ ---- Branch C
              |
@@ -500,7 +506,8 @@ Purpose: To reduce WAN costs.
 
 Example:
 
-```Seattle Office
+```
+Seattle Office
       |
  Public Internet
       |
@@ -521,7 +528,8 @@ Purpose: To securely connect remote company locations.
 
 Example:
 
-```Branch Office
+```
+Branch Office
       |
  Internet
       |
@@ -544,7 +552,8 @@ Purpose: To securely connect company locations over the Internet.
 
 Example:
 
-```Office LAN
+```
+Office LAN
     |
  Router ===== VPN Tunnel ===== Router
                                  |
@@ -578,7 +587,8 @@ Purpose: To provide a modern and intelligent WAN solution.
 
 Example:
 
-```          Internet
+```
+          Internet
              |
 Branch ---- SD-WAN ---- Data Center
              |
@@ -601,7 +611,8 @@ Purpose: To provide applications closer to users.
 
 Example:
 
-```Branch Office
+```
+Branch Office
       |
  Internet
       |
