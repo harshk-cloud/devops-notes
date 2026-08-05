@@ -27,7 +27,8 @@ A Data Center typically contains:
 
 Diagram:
 
-'''
+```
+
            Company
               │
               │
@@ -41,7 +42,8 @@ Diagram:
       │ Switches         │
       │ Firewalls        │
       └──────────────────┘
-'''
+
+```
 
 Advantages
 
@@ -78,7 +80,8 @@ My Notes:
 
 Diagram:
 
-'''
+```
+
  You
   │
   │ Internet
@@ -91,7 +94,8 @@ Diagram:
 │ Databases                  │
 │ Networking                 │
 └────────────────────────────┘
-'''
+
+```
 
 ## CAPEX vs OPEX
 
@@ -116,7 +120,8 @@ My Notes:
 
 Diagram:
 
-'''
+```
+
 Money
   │
   ▼
@@ -124,7 +129,8 @@ Purchase Hardware
   │
   ▼
 Own & Use for Years
-'''
+
+```
 
 
 ### OPEX (Operational Expenditure)
@@ -147,7 +153,7 @@ My Notes:
 
 Diagram:
 
-'''
+```
 Start VM
    │
    ▼
@@ -161,7 +167,7 @@ Stop VM
    │
    ▼
 Billing Stops
-'''
+```
 
 
 ## Elasticity
@@ -224,7 +230,7 @@ My Notes:
 
 Diagram:
 
-'''
+```
 Normal Traffic
 
 1 Server
@@ -254,7 +260,7 @@ Servers Removed
 ↓
 
 Lower Cost
-'''
+```
 
 
 ## Cloud Features
@@ -278,7 +284,7 @@ Cloud providers offer many intelligent services such as:
 
 Diagram:
 
-'''
+```
                  Cloud
                    │
       ┌────────────┼────────────┐
@@ -299,7 +305,7 @@ Diagram:
       ▼
 
  Monitoring
-'''
+```
 
 Cloud is not just about renting servers.
 
@@ -335,7 +341,7 @@ If you only modify the Login feature, the entire application must be rebuilt and
 
 Diagram:
 
-'''
+```
              One Big Application
       ┌──────────────────────────────┐
       │ Login                        │
@@ -344,7 +350,7 @@ Diagram:
       │ Search                       │
       │ Cart                         │
       └──────────────────────────────┘
-'''
+```
 
 
 ## Microservices
@@ -377,7 +383,7 @@ This is the modern software architecture.
 
 Diagram:
 
-'''
+```
              Application
 
                   │
@@ -389,7 +395,7 @@ Diagram:
       ▼           ▼           ▼
 
  Search       Cart      Notifications
-'''
+```
 
 
 ## Containers
@@ -420,7 +426,7 @@ Docker is the most popular container platform.
 
 Diagram:
 
-'''
+```
 Physical Server
         │
         ▼
@@ -434,7 +440,7 @@ Container Runtime
 |   Libraries      |
 |   Dependencies   |
 +------------------+
-'''
+```
 
 ## Kubernetes (K8s)
 
@@ -461,7 +467,7 @@ Instead of manually managing hundreds of containers, Kubernetes does it automati
 
 Diagram:
 
-'''
+```
         Kubernetes Cluster
 
                │
@@ -473,7 +479,7 @@ Container  Container  Container
      ▼         ▼         ▼
 
  Start     Restart     Scale
-'''
+```
 
 ## Cloud Native
 
@@ -491,10 +497,10 @@ Cloud Native combines:
 
 Formula:
 
-'''
+```
 Cloud Native = Microservices + Containers + Kubernetes
 
-'''
+```
 
 Benefits:
 
@@ -549,7 +555,7 @@ My Notes:
 
 Diagram:
 
-'''
+```
                     Internet
                         │
                         ▼
@@ -569,7 +575,7 @@ Diagram:
         │ Storage                     │
         │ Networking                  │
         └─────────────────────────────┘
-'''
+```
 
 Benefits:
 
@@ -597,7 +603,7 @@ Many companies use Hybrid Cloud and Multi-Cloud together.
 
 Diagram:
 
-'''
+```
           Multi-Cloud
 
       AWS
@@ -605,7 +611,7 @@ Diagram:
         ├─────────────┐
         │             │
       Azure        Google Cloud
-'''
+```
 
 
 ## Problems with Traditional Hybrid Cloud
@@ -649,7 +655,7 @@ Purpose: Manage On-Prem and Cloud using the same tools.
 
 Diagram:
 
-'''
+```
                  vCenter
                     │
               vRealize
@@ -657,7 +663,7 @@ Diagram:
       ┌────────┬────────┬────────┐
       │        │        │        │
   On-Prem     AWS     Azure     GCP
-'''
+```
 
 Benefits:
 
@@ -682,14 +688,14 @@ My Notes:
 
 Diagram:
 
-'''
+```
           VMware Cloud Foundation
 
                     │
       ┌────────┬────────┬────────┐
       │        │        │        │
   On-Prem     AWS     Azure     GCP
-'''
+```
 
 
 ## vCenter
@@ -734,7 +740,7 @@ My Notes:
 
 Diagram:
 
-'''
+```
 Physical Server
        │
        ▼
@@ -744,7 +750,7 @@ Physical Server
 +------+------+------+
 | VM1 | VM2 | VM3 |
 +------+------+------+
-'''
+```
 
 
 ## vMotion
@@ -761,7 +767,7 @@ My Notes:
 
 Diagram:
 
-'''
+```
 Server A                    Server B
 
 +--------+                  +--------+
@@ -769,7 +775,7 @@ Server A                    Server B
 +--------+                  +--------+
 
 (No Shutdown)
-'''
+```
 
 
 ## Reverse Migration
@@ -780,11 +786,11 @@ Purpose: Workloads can move in both directions whenever required.
 
 Diagram:
 
-'''
+```
 On-Prem  <==========>  Cloud
 
      Bidirectional Migration
-'''
+```
 
 
 ## VxRail
@@ -812,7 +818,7 @@ Software controls:
 
 Diagram:
 
-'''
+```
           Software
 
               │
@@ -823,7 +829,7 @@ Diagram:
               │
               ▼
           Automation
-'''
+```
 
 
 ## Containers on On-Prem
@@ -862,7 +868,7 @@ Meaning: Modern Hybrid Cloud provides one platform to manage both On-Prem and Pu
 
 Diagram:
 
-'''
+```
           Modern Hybrid Cloud
 
                  vCenter
@@ -870,7 +876,7 @@ Diagram:
       ┌────────┬────────┬────────┐
       │        │        │        │
   On-Prem     AWS     Azure     GCP
-'''
+```
 
 Benefits:
 
@@ -888,7 +894,7 @@ Purpose: Simplify Data Center deployment and management.
 
 Diagram:
 
-'''
+```
         Hyper-Converged Infrastructure
 
      +----------------------------------+
@@ -899,7 +905,7 @@ Diagram:
      +----------------------------------+
 
             Managed as One System
-'''
+```
 
 My Notes:
 
