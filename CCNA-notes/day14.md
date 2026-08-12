@@ -33,9 +33,10 @@ Purpose: Computers use binary to represent and process data.
 
 Binary digits are called bits.
 
+```
 1 = ON
 0 = OFF
-
+```
 Example:
 
 10101100
@@ -71,12 +72,12 @@ Binary:
 11000000.10101000.00000001.00010101
 
 Each octet still contains exactly 8 bits.
-
+```
 11000000 = Octet 1
 10101000 = Octet 2
 00000001 = Octet 3
 00010101 = Octet 4
-
+```
 
 ## Powers of 2 Chart
 
@@ -84,15 +85,13 @@ Meaning: Each position in an 8-bit binary number has a specific value based on p
 
 Chart:
 ```
-
 128  64  32  16  8  4  2  1
 2^7  2^6 2^5 2^4 2^3 2^2 2^1 2^0
-
 ```
 
 This chart is used for both:
 
-Binary → Decimal
+Binary → Decimal     
 Decimal → Binary
 
 
@@ -105,9 +104,10 @@ Rule: Bit = 1 means ON, so add its corresponding value.
 Example:
 
 11000000
-
+```
 128  64  32  16  8  4  2  1
  1    1   0   0   0  0  0  0
+```
 
 128 + 64 = 192
 
@@ -121,9 +121,10 @@ Therefore:
 Example:
 
 10101000
-
+```
 128  64  32  16  8  4  2  1
  1    0   1   0   1  0  0  0
+```
 
 128 + 32 + 8 = 168
 
@@ -152,9 +153,10 @@ Therefore:
 Example:
 
 00010101
-
+```
 128  64  32  16  8  4  2  1
  0    0   0   1   0  1  0  1
+```
 
 16 + 4 + 1 = 21
 
@@ -170,17 +172,16 @@ Binary:
 11000000.10101000.00000001.00010101
 
 Convert each octet separately:
-
+```
 11000000 = 192
 10101000 = 168
 00000001 = 1
 00010101 = 21
+```
 
 Therefore:
 
-11000000.10101000.00000001.00010101
-=
-192.168.1.21
+11000000.10101000.00000001.00010101 = 192.168.1.21
 
 
 ## Decimal → Binary
@@ -209,8 +210,9 @@ Convert:
 172 → Binary
 
 Chart:
-
+```
 128  64  32  16  8  4  2  1
+```
 
 Step 1:
 
@@ -287,10 +289,12 @@ Convert:
 
 16 → Binary
 
+```
 128 → 0
 64  → 0
 32  → 0
 16  → 1
+```
 
 16 - 16 = 0
 
@@ -310,16 +314,18 @@ Check:
 Convert:
 
 34 → Binary
-
+```
 128 → 0
 64  → 0
 32  → 1
+```
 
 34 - 32 = 2
-
+```
 16 → 0
 8  → 0
 4  → 0
+```
 
 2 → 1
 
@@ -341,7 +347,7 @@ Check:
 Convert:
 
 3 → Binary
-
+```
 128 → 0
 64  → 0
 32  → 0
@@ -349,6 +355,7 @@ Convert:
 8   → 0
 4   → 0
 2   → 1
+```
 
 3 - 2 = 1
 
@@ -372,11 +379,12 @@ Example:
 172.16.34.3
 
 Convert each octet separately:
-
+```
 172 = 10101100
 16  = 00010000
 34  = 00100010
 3   = 00000011
+```
 
 Therefore:
 
@@ -385,34 +393,6 @@ Therefore:
 =
 
 10101100.00010000.00100010.00000011
-
-
-## Practice Example
-
-Decimal:
-
-159
-
-Use the chart:
-
-128  64  32  16  8  4  2  1
-
-159 - 128 = 31  → 1
-31  - 64  = NO  → 0
-31  - 32  = NO  → 0
-31  - 16  = 15  → 1
-15  - 8   = 7   → 1
-7   - 4   = 3   → 1
-3   - 2   = 1   → 1
-1   - 1   = 0   → 1
-
-Therefore:
-
-159 = 10011111
-
-Check:
-
-128 + 16 + 8 + 4 + 2 + 1 = 159
 
 
 ## Important Pattern
@@ -448,15 +428,16 @@ Human-readable:
 172.16.34.3
 
 Binary representation:
-
+```
 10101100.00010000.00100010.00000011
+```
 
 Understanding decimal and binary conversion is important for subnetting.
 
 Subnetting depends heavily on understanding:
-
+```
 128 64 32 16 8 4 2 1
-
+```
 
 ## Key Learnings
 
@@ -476,6 +457,4 @@ Subnetting depends heavily on understanding:
   11000000.10101000.00000001.00010101
 - 172.16.34.3 in binary is:
   10101100.00010000.00100010.00000011
-- 159 in binary is:
-  10011111
 - Binary ↔ Decimal conversion is a fundamental skill for subnetting.
