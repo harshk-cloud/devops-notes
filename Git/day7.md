@@ -1,182 +1,134 @@
-# Day 8 - Git Rebase and Shortlog
+# Day 7 - Git Rebase and Shortlog
 
-## 1. What is Git Rebase?
 
-Meaning: `git rebase` feature branch ke commits ko target branch ke latest commit ke upar dobara apply karta hai.
+## Git Rebase
 
-Purpose: Feature branch ko main branch ke latest changes ke saath update karna aur linear commit history maintain karna.
+Meaning: `git rebase` reapplies the commits of one branch on top of another branch's latest commit.
 
-Example:
+Purpose: To update a feature branch with the latest changes from the main branch and maintain a linear commit history.
+
+Command:
 ```
     git switch feature
     git rebase main
 ```
-My Notes: Maan lo main branch mein A aur B commits hain, aur feature branch mein C aur D commits hain.
+My Notes:
+
+- Suppose the main branch has one commit, A.
+- The feature branch has three additional commits: B, C, and D.
+- When we run `git rebase main`, Git reapplies the feature branch commits on top of the latest main commit.
 
 Before Rebase:
 ```
-    main:     A --- B
-                   \
-    feature:        C --- D
+    A (main)
+     \
+      B --- C --- D (feature)
 ```
-Ab feature branch par jaakar `git rebase main` run karenge.
-
 After Rebase:
 ```
-    main:     A --- B
-                   \
-    feature:        C1 --- D1
+    A --- B1 --- C1 --- D1 (feature)
+     ^
+     main
 ```
-Linear History:
-```
-    A --- B --- C1 --- D1
-                ^
-              feature
-```
-- Feature branch ke commits naye commit IDs ke saath dobara create ho sakte hain.
-- Original C aur D commits ki jagah C1 aur D1 jaise naye commits aate hain.
-- Main branch automatically feature branch par switch nahi hoti.
-- Rebase karne ke baad feature branch main ke latest commit ke upar aa jaati hai.
+- The feature branch commits are recreated on top of the latest main commit.
+- The commit hashes may change because Git creates new commits.
+- Rebase does not automatically merge the feature branch into main.
 
 
-## 2. Git Rebase vs Git Merge
+## Git Rebase Conflict
 
-Meaning: Rebase commits ko dobara apply karta hai, jabki merge branches ke histories ko combine karta hai.
+Meaning: A rebase conflict occurs when Git cannot automatically apply changes from a commit.
 
-Purpose: Dono approaches ka difference samajhna.
+Purpose: To resolve conflicting changes manually and complete the rebase.
 
-Example:
+Command: git rebase main
 
-Before:
-```
-    A --- B  main
-     \
-      C --- D  feature
-```
-Merge ke baad:
-```
-    A --- B -------- M  main
-     \              /
-      C ----------- D
-```
-Rebase ke baad:
-```
-    A --- B --- C1 --- D1  feature
-```
 My Notes:
 
-- Merge existing branch history ko preserve karta hai.
-- Merge conflict-free hone par bhi merge commit create kar sakta hai, depending on the merge type.
-- Rebase linear history create kar sakta hai.
-- Rebase existing commits ko rewrite kar sakta hai.
-- Shared branches par rebase karne se doosre developers ko problems ho sakti hain.
-
-
-## 3. Git Rebase Conflict
-
-Meaning: Rebase conflict tab aata hai jab Git changes ko automatically apply nahi kar pata.
-
-Purpose: Conflicting changes ko manually resolve karke rebase complete karna.
-
-Example:
-```
-    main:       A --- B
-                 \
-    feature:      C --- D
-```
-Maan lo main aur feature branch dono ne same file ke same part ko modify kiya.
-
-Conflict ke waqt:
-```
+- A conflict can occur when main and feature branches modify the same part of a file differently.
+- Git pauses the rebase and asks us to resolve the conflict.
+- Open the conflicted file in a text editor.
+- Git may show conflict markers like these:
+````
     <<<<<<< HEAD
-    Main branch ka content
+    Changes from main
     =======
-    Feature branch ka content
-    >>>>>>> commit
+    Changes from feature
+    >>>>>>> commit-id
 ```
-My Notes:
-
-- `<<<<<<<`, `=======` aur `>>>>>>>` conflict markers hain.
-- File ko text editor mein open karna hai.
-- Decide karna hai ki kaunsa content rakhna hai.
-- Correct content rakhkar conflict markers remove karne hain.
-- File save karne ke baad resolved changes ko stage karna hai.
+- Choose the correct content and remove the conflict markers.
+- Save the file before continuing.
 
 
-## 4. Git Rebase --Abort
+## Git Rebase --Abort
 
-Meaning: `git rebase --abort` current rebase process ko cancel karta hai.
+Meaning: `git rebase --abort` cancels the current rebase operation.
 
-Purpose: Rebase ko cancel karke rebase shuru hone se pehle wali state par wapas jaana.
+Purpose: To stop a rebase when we do not want to continue resolving conflicts.
 
-Example: git rebase --abort
+Command: git rebase --abort
 
 My Notes:
 
-- Ye command tab use hoti hai jab rebase active ho.
-- Agar conflict resolve nahi karna hai, to rebase abort kar sakte hain.
-- Git current rebase operation ko cancel kar deta hai.
+- This command is used while a rebase is in progress.
+- Git attempts to restore the branch to its state before the current rebase started.
+- Use this command when you decide not to continue the rebase.
 
 
-## 5. Git Add During Rebase
+## Git Add During Rebase
 
-Meaning: `git add` resolved file ko staging area mein add karta hai.
+Meaning: `git add .` stages the resolved changes in the current directory.
 
-Purpose: Git ko batana ki conflict resolve kar diya gaya hai.
+Purpose: To mark the resolved files as ready for the rebase to continue.
 
-Example: git add hello.txt
+Command: git add .
 
-Ya multiple resolved files ke liye:
+My Notes:
+
+- First, resolve the conflict in the file.
+- Save the file.
+- Run `git add .` to stage the resolved changes.
+- Then continue the rebase process.
+
+
+## Git Rebase --Continue
+
+Meaning: `git rebase --continue` resumes a paused rebase operation.
+
+Purpose: To continue applying the remaining commits after resolving a conflict.
+
+Command:
 ```
     git add .
-```
-My Notes:
-
-- Pehle file mein conflict resolve karo.
-- File save karo.
-- `git add` se resolved file stage karo.
-- Uske baad rebase continue karo.
-
-
-## 6. Git Rebase --Continue
-
-Meaning: `git rebase --continue` paused rebase process ko aage badhata hai.
-
-Purpose: Conflict resolve hone ke baad remaining commits ko apply karna.
-
-Example:
-```
-    git add hello.txt
     git rebase --continue
 ```
 My Notes:
 
-- Conflict resolve karne ke baad file stage karni hai.
-- `git rebase --continue` command run karni hai.
-- Agar doosre commit par conflict aata hai, to same process repeat karna hai.
-- Rebase complete hone ke baad Git success message dikha sakta hai.
+- Resolve the conflict and save the file.
+- Stage the resolved changes using `git add .`.
+- Run `git rebase --continue`.
+- Git may open a text editor to confirm the commit message.
+- If another conflict occurs, resolve it and repeat the process.
+- After successful completion, Git updates the feature branch reference.
 
-Complete Workflow:
-```
-    git switch feature
-    git rebase main
+Output: Successfully rebased and updated refs/heads/feature.
 
-    # Resolve conflict in the file
-    git add hello.txt
-    git rebase --continue
 
-    # If another conflict occurs, repeat the process
-```
+## Git Shortlog
 
-## 7. What is Git Shortlog?
+Meaning: `git shortlog` groups commit history according to the author.
 
-Meaning: `git shortlog` commit history ko author ke according group karke dikhata hai.
+Purpose: To view the commits made by each author in a repository.
 
-Purpose: Repository mein kis author ne kaunse commits kiye hain, ye dekhna.
+Command: git shortlog
 
-Example: git shortlog
+My Notes:
 
-My Notes: Maan lo repository mein three developers kaam karte hain.
+- Git groups commit messages under each author's name.
+- In a repository with multiple developers, each author has a separate group.
+- The number in parentheses represents the number of commits attributed to that author.
+
+Example Output:
 ```
     Gaurav Sharma (12):
         first commit
@@ -184,129 +136,91 @@ My Notes: Maan lo repository mein three developers kaam karte hain.
         third commit
 
     Rahul Sharma (8):
-        add login feature
-        fix login bug
-
-    Amit Kumar (5):
-        update README
-        fix configuration
+        login feature added
+        bug fixed
 ```
-- Har author ke naam ke neeche uske commits dikhte hain.
-- Number author ke commits ki count batata hai.
-- Ye command repository ki commit history ka summary deti hai.
+- Gaurav Sharma has 12 commits.
+- Rahul Sharma has 8 commits.
 
 
-## 8. Git Shortlog -n
+## Git Shortlog -n
 
-Meaning: `git shortlog -n` authors ko commit count ke according sort karta hai.
+Meaning: `git shortlog -n` sorts authors according to their commit counts.
 
-Purpose: Zyada commits karne wale author ko pehle dikhana.
+Purpose: To display authors with more commits before authors with fewer commits.
 
-Example: git shortlog -n
-
-Output Example:
-```
-    Amit Kumar (15):
-        ...
-
-    Gaurav Sharma (12):
-        ...
-
-    Rahul Sharma (8):
-        ...
-```
-My Notes:
-
-- `-n` author groups ko commit count ke according sort karta hai.
-- Default order mein sorting commit count ke according nahi hoti.
-- Example counts sirf samjhane ke liye hain.
-
-
-## 9. Git Shortlog -e
-
-Meaning: `git shortlog -e` author ke naam ke saath email address bhi dikhata hai.
-
-Purpose: Author ki email information dekhna.
-
-Example:
-```
-    git shortlog -e
-```
-Output Example:
-```
-    Gaurav Sharma <gaurav@example.com> (12):
-        first commit
-        second commit
-```
-My Notes:
-
-- `-e` email address show karta hai.
-- Email address repository ke commit metadata se aata hai.
-
-
-## 10. Git Shortlog -n -e
-
-Meaning: `git shortlog -n -e` authors ko commit count ke according sort karta hai aur email address bhi dikhata hai.
-
-Purpose: Author-wise commit summary aur email information ek saath dekhna.
-
-Example: git shortlog -n -e
+Command: git shortlog -n
 
 My Notes:
 
-- `-n` author groups ko commit count ke according sort karta hai.
-- `-e` email address dikhata hai.
-- Dono options ko ek saath use kar sakte hain.
+- The author with the highest commit count appears first.
+- Other authors follow according to their commit counts.
+- This option helps compare contributions by commit count.
 
 
-## 11. Git Shortlog -s
+## Git Shortlog -e
 
-Meaning: `git shortlog -s` har author ke commits ki summary dikhata hai.
+Meaning: `git shortlog -e` displays each author's email address along with their name.
 
-Purpose: Sirf author-wise commit count dekhna, bina commit messages ke.
+Purpose: To view author email information in the commit summary.
 
-Example: git shortlog -s
-
-Output Example:
-```
-    15  Amit Kumar
-    12  Gaurav Sharma
-     8  Rahul Sharma
-```
-My Notes:
-
-- `-s` summary mode enable karta hai.
-- Commit messages output mein nahi dikhte.
-- Har author ke naam ke saath uske commits ki count dikhai deti hai.
-
-
-## 12. Important Git Shortlog Commands
-
-    git shortlog
-    git shortlog -n
-    git shortlog -e
-    git shortlog -n -e
-    git shortlog -s
+Command: git shortlog -e
 
 My Notes:
 
-- `git shortlog` - Author-wise commits aur messages.
-- `git shortlog -n` - Commit count ke according author sorting.
-- `git shortlog -e` - Author email address.
-- `git shortlog -n -e` - Sorting aur email address.
-- `git shortlog -s` - Sirf author-wise commit summary.
+- The `-e` option displays the author's email address.
+- The author's name and email address appear together.
+
+
+## Git Shortlog -n -e
+
+Meaning: `git shortlog -n -e` sorts authors by commit count and displays their email addresses.
+
+Purpose: To view a sorted author summary with email information.
+
+Command: git shortlog -n -e
+
+My Notes:
+
+- `-n` sorts authors according to commit count.
+- `-e` displays the email address.
+- Both options can be used together.
+
+
+## Git Shortlog -s
+
+Meaning: `git shortlog -s` displays a summary containing the commit count for each author.
+
+Purpose: To see how many commits each author has made without displaying individual commit messages.
+
+Command: git shortlog -s
+
+My Notes:
+
+- The `-s` option suppresses individual commit messages.
+- The output shows each author's commit count and name.
+
+Example Output:
+```
+    12 Gaurav Sharma
+     8 Rahul Sharma
+     5 Amit Sharma
+```
+- Gaurav Sharma has 12 commits.
+- Rahul Sharma has 8 commits.
+- Amit Sharma has 5 commits.
 
 
 ## Key Learnings
 
-- Git Rebase feature branch ke commits ko target branch ke latest commit ke upar apply karta hai.
-- Rebase ke baad commits ke IDs change ho sakte hain.
-- Merge aur rebase alag approaches hain.
-- Rebase conflict ko manually resolve karna pad sakta hai.
-- `git rebase --abort` active rebase ko cancel karta hai.
-- `git add` resolved files ko staging area mein add karta hai.
-- `git rebase --continue` rebase process ko continue karta hai.
-- `git shortlog` author-wise commit history dikhata hai.
-- `git shortlog -n` commit count ke according author groups sort karta hai.
-- `git shortlog -e` email address show karta hai.
-- `git shortlog -s` sirf commit summary dikhata hai.
+- `git rebase main` reapplies feature branch commits on top of the latest main commit.
+- Rebase can change commit hashes because commits are recreated.
+- Rebase conflicts must be resolved manually.
+- `git add .` stages the resolved changes.
+- `git rebase --continue` resumes the rebase process.
+- `git rebase --abort` cancels the current rebase operation.
+- `git shortlog` groups commits according to their authors.
+- `git shortlog -n` sorts authors according to commit count.
+- `git shortlog -e` displays author email addresses.
+- `git shortlog -n -e` combines sorting and email information.
+- `git shortlog -s` displays only the summary of commit counts.
