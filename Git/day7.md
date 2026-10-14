@@ -49,7 +49,7 @@ My Notes:
 - Git pauses the rebase and asks us to resolve the conflict.
 - Open the conflicted file in a text editor.
 - Git may show conflict markers like these:
-````
+```
     <<<<<<< HEAD
     Changes from main
     =======
