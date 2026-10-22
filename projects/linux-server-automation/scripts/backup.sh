@@ -32,11 +32,19 @@ echo "[$(date '+%F %T')] Backup started." >> "$LOG_FILE"
 
 
 if tar -czf "$ARCHIVE" -C "$SOURCE_DIR" .; then
+if ! tar -tzf "$ARCHIVE" > /dev/null; then
+     echo "ERROR: Backup archive verification failed." >> "$LOG_FILE"
+     rm -f "$ARCHIVE"
+     exit 1
+fi 
+
      echo "[$(date '+%F %T')] SUCCESS: $ARCHIVE" >> "$LOG_FILE"
      echo "backup created: $ARCHIVE"
+     find "$BACKUP_DIR" -type f -name "docs_backup_*.tar.gz" -mtime +59 -delete
 else
      echo "[$date '+%F %T')] ERROR: Backup failed." >> "$LOG_FILE"
      rm -f "$ARCHIVE"
      echo "Backup failed." >&2
      exit 1
 fi
+
