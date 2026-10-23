@@ -8,7 +8,7 @@ set -u
 
 
 PROJECT_DIR="$HOME/devops-notes/projects/linux-server-automation"
-SOURCE_DIR="$PROJECT_DIR/docs"
+SOURCE_DIR="$PROJECT_DIR"
 BACKUP_DIR="$PROJECT_DIR/backups"
 LOG_FILE="$PROJECT_DIR/logs/backup.log"
 
@@ -31,7 +31,7 @@ fi
 echo "[$(date '+%F %T')] Backup started." >> "$LOG_FILE"
 
 
-if tar -czf "$ARCHIVE" -C "$SOURCE_DIR" .; then
+if tar --exclude='./backups' --exclude='./restore-test' -czf "$ARCHIVE" -C "$SOURCE_DIR" .; then
 if ! tar -tzf "$ARCHIVE" > /dev/null; then
      echo "ERROR: Backup archive verification failed." >> "$LOG_FILE"
      rm -f "$ARCHIVE"
