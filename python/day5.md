@@ -103,11 +103,11 @@ print(name[3])  # r
 ```
 
 Index Table:
-```
+
 | Character | H | a | r | r | y |
 |-----------|---|---|---|---|---|
 | Index     | 0 | 1 | 2 | 3 | 4 |
-```
+
 ### 4.2 Negative Indexing
 
 Negative indexing mein characters ko right se left access karte hain.
@@ -125,12 +125,12 @@ print(name[-5])  # H
 ```
 
 Index Table:
-```
+
 | Character | H | a | r | r | y |
 |-----------|---|---|---|---|---|
 | Positive  | 0 | 1 | 2 | 3 | 4 |
 | Negative  | -5 | -4 | -3 | -2 | -1 |
-```
+
 Important: Agar string ki available index range se bahar access karenge, toh IndexError aayega.
 
 ## 5. Looping Through a String
@@ -616,12 +616,12 @@ ValueError
 ```
 
 Important Difference:
-```
+
 | Method | Substring Not Found |
 |--------|---------------------|
 | find() | Returns -1 |
 | index() | Raises ValueError |
-```
+
 # 11. String Checking Methods
 
 Ye methods check karte hain ki string mein kis type ke characters present hain. Inka return value True ya False hota hai.
@@ -763,7 +763,7 @@ True
 ```
 
 # 12. Important Differences to Remember
-```
+
 | Method | Purpose |
 |--------|---------|
 | upper() | Converts to uppercase |
@@ -788,7 +788,7 @@ True
 | isprintable() | Checks printable characters |
 | isspace() | Checks whitespace only |
 | istitle() | Checks title case |
-```
+
 # 13. Key Learnings
 
 - Python strings can be defined using single or double quotes.
