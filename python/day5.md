@@ -1,3 +1,4 @@
+
 # Day 5 - Python Strings (Indexing, Slicing and String Methods)
 
 ## 1. Single and Double Quotes
